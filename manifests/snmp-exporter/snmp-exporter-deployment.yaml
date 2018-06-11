@@ -13,7 +13,7 @@ spec:
         app: snmp-exporter
     spec:
       containers:
-      - image: carlosedp/snmp_exporter:v0.9.0
+      - image: carlosedp/snmp_exporter:v0.11.0
         name: snmp-exporter
         ports:
         - containerPort: 9116

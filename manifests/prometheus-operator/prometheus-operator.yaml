@@ -14,9 +14,9 @@ spec:
       containers:
       - args:
         - --kubelet-service=kube-system/kubelet
-        - --prometheus-config-reloader=carlosedp/prometheus-config-reloader:v0.0.2
+        - --prometheus-config-reloader=carlosedp/prometheus-config-reloader:v0.20.0
         - --config-reloader-image=carlosedp/configmap-reload:v0.2.2-arm
-        image: carlosedp/prometheus-operator:v0.17.0
+        image: carlosedp/prometheus-operator:v0.20.0
         name: prometheus-operator
         ports:
         - containerPort: 8080
