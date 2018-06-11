@@ -1,21 +1,17 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: kube-state-metrics
+  name: prometheus-k8s
   namespace: monitoring
 rules:
 - apiGroups:
   - ""
   resources:
+  - nodes
+  - services
+  - endpoints
   - pods
   verbs:
   - get
-- apiGroups:
-  - extensions
-  resourceNames:
-  - kube-state-metrics
-  resources:
-  - deployments
-  verbs:
-  - get
-  - update
+  - list
+  - watch

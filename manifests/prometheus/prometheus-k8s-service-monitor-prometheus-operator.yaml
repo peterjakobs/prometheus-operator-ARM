@@ -1,9 +1,10 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: prometheus-operator
   labels:
     k8s-app: prometheus-operator
+  name: prometheus-operator
+  namespace: monitoring
 spec:
   endpoints:
   - port: http

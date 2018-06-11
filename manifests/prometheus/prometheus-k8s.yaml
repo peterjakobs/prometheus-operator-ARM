@@ -2,6 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
 metadata:
   name: k8s
+  namespace: monitoring
   labels:
     prometheus: k8s
 spec:
@@ -12,11 +13,12 @@ spec:
   serviceAccountName: prometheus-k8s
   serviceMonitorSelector:
     matchExpressions:
-    - {key: k8s-app, operator: Exists}
+    - key: k8s-app
+      operator: Exists
   ruleSelector:
     matchLabels:
-      role: prometheus-rulefiles
       prometheus: k8s
+      role: alert-rules
   resources:
     requests:
       # 2Gi is default, but won't schedule if you don't have a node with >2Gi
