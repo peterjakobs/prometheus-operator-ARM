@@ -6,12 +6,17 @@ metadata:
   labels:
     k8s-app: arm-exporter
 spec:
+  updateStrategy:
+    type: RollingUpdate
   template:
     metadata:
       name: arm-exporter
       labels:
         k8s-app: arm-exporter
     spec:
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
       hostNetwork: true
       containers:
       - image: carlosedp/arm_exporter
