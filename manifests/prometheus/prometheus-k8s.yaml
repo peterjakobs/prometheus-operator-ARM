@@ -6,6 +6,8 @@ metadata:
     prometheus: k8s
 spec:
   replicas: 1
+  secrets:
+  - etcd-certs
   baseImage: carlosedp/prometheus
   version: v2.2.1
   retention: "168h"
