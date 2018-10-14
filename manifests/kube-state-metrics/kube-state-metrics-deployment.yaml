@@ -28,14 +28,14 @@ spec:
         - name: http-self
           containerPort: 9443
       - name: addon-resizer
-        image: carlosedp/addon-resizer:2.1
+        image: peterjakobs/addon-resizer:2.1-armhf
         resources:
           limits:
             cpu: 100m
             memory: 30Mi
           requests:
-            cpu: 100m
-            memory: 30Mi
+            cpu: 50m
+            memory: 20Mi
         env:
           - name: MY_POD_NAME
             valueFrom:
@@ -50,7 +50,7 @@ spec:
           - --container=kube-state-metrics
           - --cpu=100m
           - --extra-cpu=2m
-          - --memory=150Mi
-          - --extra-memory=30Mi
+          - --memory=30Mi
+          - --extra-memory=5Mi
           #- --threshold=5
           - --deployment=kube-state-metrics
